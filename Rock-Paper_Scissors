@@ -1,0 +1,39 @@
+import random
+import time
+choices = ["Rock","Paper","Scissors"]
+print(choices)
+comp_points = 0
+player_points = 0
+
+def compare(player_1,computer_1):
+    print(f"Your choice is: {player_1}")
+    print(f"The computer chooses: {computer_1}")
+    if player_1 == computer_1:
+        print("It is a tie")
+    elif (player_1 == "Rock" and computer == "Paper") or (player_1 == "Scissors" and computer_1 == "Rock") or (player_1 == "Paper" and computer_1 == "Scissors"):
+        print("--> Computer WINS")
+        global comp_points
+        comp_points += 1
+        print(comp_points)
+    else:
+        print("--> Player WINS")
+        global player_points
+        player_points += 1
+        print(player_points)
+
+def running():
+    global player
+    player = input("Choose One: ").capitalize()
+    global computer
+    computer = random.choice(choices)
+    if player in choices:
+        compare(player,computer)
+    else:
+        print("Move not recognised")
+        running()
+while comp_points < 3 and player_points < 3:
+    running()
+    if comp_points == 3:
+        print("***COMPUTER WINS***")
+    elif player_points == 3:
+        print("***PLAYER WINS***")
